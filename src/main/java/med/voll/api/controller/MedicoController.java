@@ -1,6 +1,5 @@
 package med.voll.api.controller;
 
-import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -49,6 +48,8 @@ public class MedicoController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id) {
-    	repository.deleteById(id);
+    	var medico = repository.getReferenceById(id);
+    	medico.excluir();
+    	
     }
 }
