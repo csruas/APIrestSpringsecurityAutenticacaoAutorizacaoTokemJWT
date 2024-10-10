@@ -1,7 +1,5 @@
 package med.voll.api.medicoController;
 
-import java.net.URI;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -24,6 +22,7 @@ import med.voll.api.MedicoDTO.DadosDetalhamentoMedicoDTO;
 import med.voll.api.MedicoDTO.DadosListagemMedicoDTO;
 import med.voll.api.medico.modelo.Medico;
 import med.voll.api.medicoRepository.MedicoRepository;
+
 
 @RestController
 @RequestMapping("medicos")
