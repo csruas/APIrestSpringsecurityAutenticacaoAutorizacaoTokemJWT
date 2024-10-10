@@ -1,4 +1,4 @@
-package med.voll.api.modelo;
+package med.voll.api.medico.modelo;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -13,7 +13,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.MedicoDTO.DadosAtualizacaoMedico;
+import med.voll.api.MedicoDTO.DadosAtualizacaoMedicoDTO;
+import med.voll.api.MedicoDTO.DadosCadastroMedicoDTO;
 import med.voll.api.endereco.Endereco;
 
 @Table(name = "medicos")
@@ -42,7 +43,7 @@ public class Medico {
 	@Embedded
 	private Endereco endereco;
 
-	public Medico(DadosCadastroMedico dados) {
+	public Medico(DadosCadastroMedicoDTO dados) {
 		this.ativo = true;
 		this.nome = dados.nome();
 		this.email = dados.email();
@@ -109,7 +110,7 @@ public class Medico {
 		this.endereco = endereco;
 	}
 
-	public void atualizarInformacoes(@Valid DadosAtualizacaoMedico dados) {
+	public void atualizarInformacoes(@Valid DadosAtualizacaoMedicoDTO dados) {
 		if (dados.nome() != null) {
 			this.nome = dados.nome();
 		}
