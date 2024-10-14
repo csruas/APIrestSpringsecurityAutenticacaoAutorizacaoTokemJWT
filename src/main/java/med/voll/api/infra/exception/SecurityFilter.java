@@ -48,7 +48,7 @@ public class SecurityFilter extends OncePerRequestFilter{
 	    var authorizationHeader = request.getHeader("Authorization");
 	    if (authorizationHeader != null) {
 	    	System.out.println("Requisição recebida em: " + LocalDateTime.now());
-	    	return authorizationHeader.replace("Bearer ", "");
+	    	return authorizationHeader.replace("Bearer ", "").trim();
 	    }
 	    
 	    return null;
